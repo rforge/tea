@@ -14,7 +14,7 @@ imputation: tea.bbl
 
 DOT=/apps/graphviz/usr/bin/dot
 
-diagram:
+pepflow.png:
 	if [ -e $(DOT) ] ; then \
 		cd dots&& $(DOT) -Tpng < pepflow.dot > pepflow.png; \
 	else	\
@@ -22,7 +22,7 @@ diagram:
 	fi
 	#cd dots&& /apps/graphviz/usr/bin/dot -Teps < pepflow.dot > pepflow.eps
 
-tea.bbl: tea.bib diagram
+tea.bbl: tea.bib pepflow.png
 	pdflatex $(DOC).tex
 
 PROG=read_spec
